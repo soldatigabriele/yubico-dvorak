@@ -16,18 +16,43 @@ This script converts your desired password into what you need to program into th
 
 ## Usage
 
+### macOS/Linux
+
 ```bash
 # Copy converted password to clipboard (default, more secure)
 ./dvorak-to-yubikey.sh "MySecretPassword123"
+# Output: Copied to clipboard (21 chars)
 
 # Show on screen instead
 ./dvorak-to-yubikey.sh -s "MySecretPassword123"
+# Output:
+#   Desired output: MySecretPassword123
+#   Program into YubiKey: Mt:diodkRa;;,soh123
 
 # Help
 ./dvorak-to-yubikey.sh -h
 ```
 
+### Windows (PowerShell)
+
+```powershell
+# Copy converted password to clipboard (default, more secure)
+.\dvorak-to-yubikey.ps1 "MySecretPassword123"
+# Output: Copied to clipboard (21 chars)
+
+# Show on screen instead
+.\dvorak-to-yubikey.ps1 -Show "MySecretPassword123"
+# Output:
+#   Desired output: MySecretPassword123
+#   Program into YubiKey: Mt:diodkRa;;,soh123
+
+# Help
+Get-Help .\dvorak-to-yubikey.ps1
+```
+
 ## Installation
+
+### macOS/Linux
 
 ```bash
 # Download and make executable
@@ -37,10 +62,21 @@ chmod +x dvorak-to-yubikey.sh
 mv dvorak-to-yubikey.sh /usr/local/bin/dvorak-to-yubikey
 ```
 
+### Windows
+
+```powershell
+# If script execution is disabled, you may need to allow it:
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
 ## Requirements
 
+### macOS/Linux
 - Bash
 - macOS (uses `pbcopy` for clipboard). For Linux, replace `pbcopy` with `xclip -selection clipboard`
+
+### Windows
+- PowerShell 5.1+ (included in Windows 10/11)
 
 ## Security
 
