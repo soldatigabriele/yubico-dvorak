@@ -14,6 +14,34 @@ For example, if you program `password` into YubiKey:
 
 This script converts your desired password into what you need to program into the YubiKey, so that when Dvorak interprets the keystrokes, you get the correct output.
 
+```
+You want: "password"
+             │
+             ▼
+    ┌─────────────────┐
+    │  This script    │
+    │  (reverse map)  │
+    └────────┬────────┘
+             │
+             ▼
+Program into YubiKey: "ra;;,soh"
+             │
+             ▼
+    ┌─────────────────┐
+    │   YubiKey sends │
+    │  QWERTY keycodes│
+    └────────┬────────┘
+             │
+             ▼
+    ┌─────────────────┐
+    │  Dvorak layout  │
+    │   interprets    │
+    └────────┬────────┘
+             │
+             ▼
+You get: "password" ✓
+```
+
 ## Usage
 
 ### macOS/Linux
